@@ -2,12 +2,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './counterSlice';
 
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
-});
+export function makeStore() {
+  return configureStore({
+    reducer: {
+      counter: counterReducer,
+    },
+  });
+}
 
-// Optionally export the store’s type for your typed hooks, e.g.:
-// export type RootState = ReturnType<typeof store.getState>;
-// export type AppDispatch = typeof store.dispatch;
+export const store = makeStore();
+
+export type AppStore = ReturnType<typeof makeStore>;
+export type AppState = ReturnType<AppStore['getState']>;
+export type AppDispatch = AppStore['dispatch'];

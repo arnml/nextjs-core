@@ -3,11 +3,12 @@
 
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../redux/store';
 import { increment } from '../redux/counterSlice';
 import Button from '../components/Button';
 
 export default function HomePage() {
-  const count = useSelector((state: { counter: { value: number } }) => state.counter.value);
+  const count = useSelector((state: AppState) => state.counter.value);
   const dispatch = useDispatch();
 
   return (
