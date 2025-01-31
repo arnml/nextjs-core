@@ -7,7 +7,7 @@ import { increment } from '../redux/counterSlice';
 import Button from '../components/Button';
 
 export default function HomePage() {
-  const count = useSelector((state: any) => state.counter.value);
+  const count = useSelector((state: { counter: { value: number } }) => state.counter.value);
   const dispatch = useDispatch();
 
   return (
