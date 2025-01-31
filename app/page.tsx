@@ -2,19 +2,19 @@
 'use client';
 
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '../redux/store';
-import { increment } from '../redux/counterSlice';
-import Button from '../components/Button';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppState } from '@/src/redux/store';
+import { increment } from '@/src/redux/counterSlice';
+import { Button } from '@/src';
 
 export default function HomePage() {
   const count = useSelector((state: AppState) => state.counter.value);
   const dispatch = useDispatch();
 
   return (
-    <div className="text-center">
-      <h1 className="text-2xl font-bold">Welcome to Core HomePage</h1>
-      <p className="text-lg">Counter: {count}</p>
+    <div>
+      <h1 className="text-2xl font-bold">Demo HomePage</h1>
+      <p>Counter: {count}</p>
       <Button onClick={() => dispatch(increment())} label="Increment" />
     </div>
   );

@@ -1,7 +1,7 @@
-// redux/counterSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface CounterState {
+// 1) Export this interface so it’s visible in .d.ts
+export interface CounterState {
   value: number;
 }
 
@@ -9,7 +9,7 @@ const initialState: CounterState = {
   value: 0,
 };
 
-const counterSlice = createSlice({
+export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
